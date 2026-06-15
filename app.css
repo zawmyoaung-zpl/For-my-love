@@ -1,0 +1,498 @@
+
+        @font-face {
+            font-family: 'Pyidaungsu';
+            src: url('Pyidaungsu.ttf');
+            format('truetype'); 
+            font-weight: normal;
+            font-style: normal;
+        }
+:root {
+    /* Status bar နေရာလွတ်ကို Variable အဖြစ်သတ်မှတ် */
+    --safe-top: env(safe-area-inset-top, 25px);
+}
+body {
+        background: #2d3436;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+    }
+
+        .hidden {
+            display: none !important;
+        }
+/* --- Top Navigation (Screen အပြည့်ဖြစ်အောင် Status Bar ပါ ငုံထားသည်) --- */
+.top-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* Status Bar အမြင့်ပါပေါင်းပြီး Navigation အမြင့်ကို တွက်ချက် */
+    height: calc(50px + var(--safe-top)); 
+    background: rgba(36, 47, 61, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    z-index: 99999;
+    
+    /* စာသားကို ဘယ်ဘက်အောက်ခြေမှာ ထားရန် */
+    align-items: flex-end; 
+    justify-content: flex-start;
+}
+
+.top-lmo {
+    font-size: 1.3rem;
+    font-family: 'Times New Roman', serif;
+    font-variant: small-caps;
+    color: white;
+    margin: 0;
+    padding-left: 20px; /* ဘယ်ဘက်ဘေးကွာဝေးမှု */
+    padding-bottom: 10px; /* အောက်ခြေကွာဝေးမှု */
+    letter-spacing: 1px;
+}
+
+/* --- Bottom Navbar --- */
+.navbar {
+    position: fixed;
+    bottom: calc(25px + env(safe-area-inset-bottom, 10px));
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    height: 45px;
+    background: rgba(36, 47, 61, 0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.menu-list {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    justify-content: space-around;
+}
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+.menu-list a.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: cyan;}
+
+        
+ #main-menu-page {
+      flex-grow: 1;
+      padding-top: 20px;
+      color: #ff6347;
+      position: relative;
+      z-index: 1;
+      font-family: Times New Roman;
+      color: #ffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      background: linear-gradient(to Top, #5b86e5, #36d1dc);
+      background-attachment: fixed;
+      background-position: center;
+      text-align: center;
+    }
+ .typing-container { display: block; margin: 10px auto; width: fit-content; }
+    .typing-effect {
+      display: inline-block; overflow: hidden; white-space: nowrap;
+      border-right: 3px solid transparent; width: 0;
+    }
+
+    @keyframes typing {
+      0% { width: 0; border-color: gold; }
+      99% { border-color: gold; }
+      100% { width: 100%; border-color: transparent; }
+    }
+    @keyframes blink { 50% { border-color: transparent; } }
+    
+    h1{ font-size: 3em; color: #F0FFF0;
+        font-variant: small-caps;
+        letter-spacing: 1px;
+        margin-bottom: 0px;
+        font-weight: bold;
+        font-family: 'Comic Sans MS',Cursive;
+    }
+   .h1-anim { animation: typing 2s steps(14) forwards, blink .5s step-end infinite,shimmer 3s linear infinite; animation-delay: 0.5s; background: linear-gradient(90deg, #FFD700,#fff, #FFD700);
+      background-size: 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;}
+   
+     h2 { font-size: 2rem; color: #FFFACD; margin: 0;font-family: 'Comic Sans MS',Cursive; }
+    .h2-anim { animation: typing 1.5s steps(6) forwards, blink .5s step-end infinite; animation-delay: 2.5s; }
+
+
+    .line-1 { animation: typing 4s steps(30) forwards, blink .5s step-end infinite; animation-delay: 7.5s; }
+    .line-2 { animation: typing 4s steps(30) forwards, blink .5s step-end infinite; animation-delay: 11.5s; }
+    
+    .ph img{
+            height: auto;
+            width: 80%;
+            border-radius:1000px;
+            margin-top:30px;
+            }
+.ph { opacity:0;animation: fadeInScale 2s ease-out forwards; animation-delay: 4.5s;}
+    @keyframes fadeInScale { 
+    0% { opacity: 0; transform: scale(0);}
+  100% { opacity: 1; transform: scale(1); } }
+    @keyframes fadeIn { to { opacity: 1; } }
+        @keyframes shimmer {
+            0% { background-position: -200%; }
+            100% { background-position: 200%; }
+        }
+        
+.footer { margin-top: 0px;}
+.balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.balloon {
+    position: absolute;
+    bottom: 0px;
+    width: 40px;
+    height: 55px;
+    background-color: rgba(255, 105, 180, 0.7);
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; /* ပူပေါင်းပုံ */
+    animation: floatUp 15s forwards ease-in;
+    opacity: 0;
+}
+
+/* ပူပေါင်း အမြီး (ကြိုး) */
+.balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    width: 1px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg);
+        opacity: 0;}
+ 10% { opacity: 0;}
+ 30% { opacity: 1;}
+ 90% { opacity: 1;}
+100% { transform: translateY(-120vh) rotate(20deg); opacity: 0;}
+}
+
+.balloon:nth-child(1) { left: 10%; width: 50px; height: 70px; animation-delay: 0s; background-color: rgba(255, 64, 129, 1); }
+.balloon:nth-child(2) { left: 20%; width: 40px; height: 55px; animation-delay: 3s; background-color: rgba(124, 77, 255, 0.7); }
+.balloon:nth-child(3) { left: 30%; width: 60px; height: 80px; animation-delay: 5.5s; background-color: rgba(68, 138, 255, 1); }
+.balloon:nth-child(4) { left: 40%; width: 45px; height: 60px; animation-delay: 2s; background-color: rgba(255, 235, 59, 1); }
+.balloon:nth-child(5) { left: 50%; width: 55px; height: 75px; animation-delay: 4.5s; background-color: rgba(76, 175, 80, 0.7); }
+.balloon:nth-child(6) { left: 60%; width: 40px; height: 55px; animation-delay: 2.5s; background-color: rgba(255, 152, 0, 1); }
+.balloon:nth-child(7) { left: 70%; width: 50px; height: 70px; animation-delay: 1s; background-color: rgba(0, 188, 212, 1); }
+.balloon:nth-child(8) { left: 80%; width: 45px; height: 60px; animation-delay: 2s; background-color: rgba(233, 30, 99, 1); }
+.balloon:nth-child(9) { left: 90%; width: 60px; height: 80px; animation-delay: 3.5s; background-color: rgba(103, 58, 183, 1); }
+.balloon:nth-child(10) { left: 100%; width: 40px; height: 55px; animation-delay: 5s; background-color: rgba(33, 150, 243, 1); }
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.confetti {
+    position: absolute;
+    top: -5px; /* ဖန်သားပြင် အပေါ်ကနေ စကျမယ် */
+    width: 12px;
+    height: 15px;
+    background-color: gold;
+    opacity: 0;
+    animation: fall 20 ease-out;
+    animation-delay: 0s;
+}
+
+/* ကျလာမယ့် Animation */
+@keyframes fall {
+  0% { transform: translateY(0) rotate(0deg);
+        opacity: 1;}
+ 80% { opacity: 1;}
+100% { transform: translateY(100vh) rotate(720deg); /* အောက်ရောက်တဲ့အထိ လည်ပြီး ကျမယ် */ opacity: 0;} }
+
+.confetti:nth-child(1) { left: 10%; background-color: #ff4081; animation-duration: 5s; animation-delay: 0s; }
+.confetti:nth-child(2) { left: 20%; background-color: #7c4dff; animation-duration: 6s; animation-delay: 2s; width: 13px; height: 12px; }
+.confetti:nth-child(3) { left: 30%; background-color: #448aff; animation-duration: 4s; animation-delay: 1s; }
+.confetti:nth-child(4) { left: 40%; background-color: #ffeb3b; animation-duration: 7s; animation-delay: 3s; width: 12px; height: 15px; }
+.confetti:nth-child(5) { left: 50%; background-color: #4caf50; animation-duration: 5s; animation-delay: 1.5s; }
+.confetti:nth-child(6) { left: 60%; background-color: #ff9800; animation-duration: 6s; animation-delay: 2.5s; }
+.confetti:nth-child(7) { left: 70%; background-color: #e91e63; animation-duration: 4s; animation-delay: 1.5s; }
+.confetti:nth-child(8) { left: 80%; background-color: #00bcd4; animation-duration: 7s; animation-delay: 10s; }
+.confetti:nth-child(9) { left: 90%; background-color: #8bc34a; animation-duration: 5s; animation-delay: 7s; }
+.confetti:nth-child(10) { left: 95%; background-color: #f44336; animation-duration: 6s; animation-delay: 1.5s; }
+.confetti:nth-child(11) { left: 10%; background-color: #ff4081; animation-duration: 5s; animation-delay: 7s; }
+.confetti:nth-child(12) { left: 20%; background-color: #7c4dff; animation-duration: 6s; animation-delay: 8s; width: 8px; height: 12px; }
+.confetti:nth-child(13) { left: 30%; background-color: #448aff; animation-duration: 4s; animation-delay: 9s; }
+.confetti:nth-child(14) { left: 40%; background-color: #ffeb3b; animation-duration: 7s; animation-delay: 7.5s; width: 12px; height: 8px; }
+.confetti:nth-child(15) { left: 50%; background-color: #4caf50; animation-duration: 5s; animation-delay: 8.5s; }
+.confetti:nth-child(16) { left: 60%; background-color: #ff9800; animation-duration: 6s; animation-delay: 9.5s; }
+.confetti:nth-child(17) { left: 70%; background-color: #e91e63; animation-duration: 4s; animation-delay: 8s; }
+.confetti:nth-child(18) { left: 80%; background-color: #00bcd4; animation-duration: 7s; animation-delay: 10s; }
+.confetti:nth-child(19) { left: 90%; background-color: #8bc34a; animation-duration: 5s; animation-delay: 7s; }
+.confetti:nth-child(20) { left: 95%; background-color: #f44336; animation-duration: 6s; animation-delay: 9s; }      
+        
+#detail-page{
+            background-color: black;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            font-family: 'Courier New',
+            padding-top:100px;
+}
+
+        #matrixCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        /* ပန်းရောင်စာသား (Happy Birthday) */
+        .highlight {
+            color: #ff69b4;
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ffb6c1, 0 0 40px #ff1493;
+            font-weight: bold;
+            text-align:center;
+            font-size: 50px;
+            opacity: 0;
+            animation: reveal 3s forwards ease-in-out;
+            background: rgba(0, 0, 0, 0.3); 
+            padding: 10px;
+            border-radius: 10px;
+            display: fixed;
+        }
+.A{ font-variant: small-caps;margin-bottom:0;}.B{ letter-spacing: 2px;margin-top:0;word-spacing:0px;font-size: 30px;}
+        @keyframes reveal {
+            0% { opacity: 0; filter: blur(20px); transform: scale(0.8); }
+            50% { opacity: 0.5; filter: blur(5px); }
+            100% { opacity: 1; filter: blur(0); transform: scale(1); }
+        }
+
+#wishes-page{
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('wp02.jpg');
+            font-family: 'Pyidaungsu', Arial, sans-serif;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 100px;
+            color: white;
+        }
+ .AA {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 400px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}       
+.BB {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    height: 40px;
+    background: rgba(36, 47, 61, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.album {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    height: 40px;
+    background: rgba(36, 47, 61, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.wish-header {
+      width:12.5ch;
+      text-wrap: nowrap;
+      overflow: hidden;
+      animation: typing 6s steps(120) infinite forwards;
+      font-size:1em;
+      font-variant: small-caps;
+      color: black;
+      font-weight:bold;
+      text-align: center;
+      width:0;
+}
+.bb{
+      width:12.5ch;
+      text-wrap: nowrap;
+      overflow: hidden;
+      animation: typing 6s steps(120) infinite forwards;
+      font:3em Courier;
+      font-variant: small-caps;
+      color: cyan;
+      font-weight:bold;
+      text-align: center;
+      width:0;
+      letter-spacing:3px;
+}
+
+.wish-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            color: white;
+            font-size: 1em;
+            text-align: justify;
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin: 10px 10px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+            max-width: 500px;
+        }
+.main-module{
+  text-align:justify;
+}
+.module ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.module li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.module li::before {
+    content: "▹";
+    color: var(--primary-green);
+    position: absolute;
+    left: -18px;
+}
+
+.sign,.sign-name{color: white;
+                 font-variant: small-caps;
+                 font-family:Times New Roman;
+                 text-align:right;}
+    #album-page {
+            font-family: 'Pyidaungsu', Arial, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('wp01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            color: gold;
+            padding-top: 110px;
+            justify-content: center;
+            align-items: center;
+            text-align:center;
+        }
+        
+
+       img {
+            width: 90%;
+            height: auto;
+            border: 1px solid cyan;
+            border-radius: 10px;
+        }      
+    #video-page {
+            font-family: 'Pyidaungsu', Arial, sans-serif;
+            background: linear-gradient(to Top, green, cyan);
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            color: gold;
+            padding-top: 110px;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .video-item {
+            width: 340px;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            color: white;
+        }
+        .video-item video {
+            width: 100%;
+            height: auto;
+            border: 1px solid cyan;
+            border-radius: 10px;
+        }
+        
+        /* app.css ရဲ့ အောက်ဆုံးမှာ ဒါလေး ထည့်ပေးပါ */
+#main-menu-page, #detail-page, #album-page, #wishes-page, #video-page {
+    padding-bottom: 100px; /* Navbar ထက် ပိုများတဲ့ padding ပေးထားမှ အောက်ဆုံးအထိ scroll ဆွဲလို့ရမှာပါ */
+}
