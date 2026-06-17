@@ -241,8 +241,22 @@
     <div class="timer">Go!</div>
 </div>
 <audio id="hbdMusic" src="cheer.mp3" preload="auto"></audio>
+
 <script>
-  
+function startSurprise() {
+    // ၁။ Overlay ကို ဖျောက်မယ်
+    document.getElementById("overlay").style.display = "none";
+    
+    // ၂။ Countdown ကို ပြမယ်
+    const timerBox = document.getElementById("timer-box");
+    timerBox.style.display = "block";
+    
+    // ၄။ Countdown ၆ စက္ကန့် (6000ms) ကြာပြီးနောက် အခြား Link သို့သွားမယ်
+    setTimeout(function() {
+        window.location.href = "app.html"; // ဒီနေရာမှာ သင်သွားချင်တဲ့ Link ကိုထည့်ပါ
+    }, 6000); 
+}
 </script>
+
 </body>
 </html>
