@@ -99,8 +99,8 @@ window.onload = () => {
 const canvas = document.getElementById('matrixCanvas');
 if (canvas) {
     const ctx = canvas.getContext('2d');
-    const textToDisplay = "HAPPYBIRTHDAY";
-    const fontSize = 14;
+    const textToDisplay = "❤❤❤❤❤❤";
+    const fontSize = 8;
     let columns;
     let drops = [];
     let charIndices = [];

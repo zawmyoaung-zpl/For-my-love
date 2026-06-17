@@ -301,7 +301,7 @@ body {
         }
 
 #wishes-page{
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('wp02.jpg');
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('01.jpg');
             font-family: 'Pyidaungsu', Arial, sans-serif;
             background-size: cover;
             background-position: center;
@@ -439,7 +439,7 @@ body {
                  text-align:right;}
     #album-page {
             font-family: 'Pyidaungsu', Arial, sans-serif;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('wp01.jpg');
+            background: linear-gradient(125deg, pink ,#ff69);
             background-size: cover;
             background-position: center;
             background-repeat:no-repeat;
